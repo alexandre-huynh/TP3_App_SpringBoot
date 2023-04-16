@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Gestion des Etudiants</title>
+  <meta charset = "utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel = "stylesheet" style = "text/css" href = "style.css">
+  <meta charset="UTF-8">
+</head>
+<body>
+
+    <div class="container marginTop">
+        <div class="panel panel-success marginTop">
+            <div class="panel-heading">Rechercher une personne par first Name</div>
+            <div class="panel-body">
+
+                <!--search est pour indiquer quel genre de formulaire c'est-->
+                <!--faut donc préciser il attend quel type d'information-->
+                <form method ="post" action = "#" class = "form" th:object="${search}" th:action="@{/searchPerson}">
+                    <div class = "form-group">
+                        <label for="firstName">First Name:</label>
+                        <input  style="font-weight:bold"   name ="firstName" placeholder = "firstName" class = "form-control" id ="firstName" th:field="*{firstName}" required>
+                    </div>
+                    <button type="submit" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class = "glyphicon glyphicon-search"></span>Search</button>
+                </form>
+
+
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container marginTop">
+        <a href="addPerson" class="btn btn-success btn-lg active" role="button" aria-pressed="true">Add...</a>
+        <br><br>
+        <div class="panel panel-primary">
+            <div class="panel-heading">Liste des personnes</div>
+            <div class="panel-body">
+                <table class="table table-striped">
+                    <tr>
+                        <th scope="col">First Name</th>
+                        <th scope="col">Last Name</th>
+                    </tr>
+                    <tr th:each ="person : ${persons}"> <!--un foreach chaque personne de la liste persons-->
+                        <td th:utext="${person.firstName}">...</td>
+                        <td th:utext="${person.lastName}">...</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <br/><br/>
+  </body>
+</html>

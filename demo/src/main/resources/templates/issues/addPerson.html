@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Gestion des Etudiants</title>
+  <meta charset = "utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel = "stylesheet" style = "text/css" href = "style.css">
+  <meta charset="UTF-8">
+</head>
+<body>
+
+  <div class="container marginTop">
+
+    <div class="panel panel-success marginTop">
+
+        <div class="panel-heading">Créer une personne</div>
+
+        <div class="panel-body">
+          <form th:action="@{/addPerson}"
+                th:object="${personForm}" method="POST" class="form">
+            First Name:
+            <input style="font-weight:bold" type="text" th:field="*{firstName}" />
+            <br/>
+            Last Name:
+            <input style="font-weight:bold"  type="text" th:field="*{lastName}" />
+            <br/>
+            <button type="submit" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <span class = "glyphicon glyphicon-search"></span>Submit</button>
+          </form>
+        </div>
+
+      </div>
+
+  </div>
+  <br/>
+
+  <!-- Check if errorMessage is not null and not empty -->
+
+  <div th:if="${errorMessage}" th:utext="${errorMessage}" style="color:red;font-style:italic;">
+    ...
+  </div>
+</body>
+</html>

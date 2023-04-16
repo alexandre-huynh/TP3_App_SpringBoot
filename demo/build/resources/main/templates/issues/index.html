@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"> <!--pour le framework-->
+<head>
+    <title>Gestion des Etudiants</title>
+    <meta charset = "utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel = "stylesheet" style = "text/css" href = "style.css">
+    <meta charset="UTF-8">
+</head>
+<body>
+
+    <!--<h2 th:utext="${message}">..!..</h2>-->
+
+    <div class="container marginTop">
+        <h1>Welcome</h1>
+        <div class="panel panel-primary">
+            <a th:href="@{/personList}" class="btn btn-success btn-lg active" role="button" aria-pressed="true">Liste des personnes</a>
+        </div>
+    </div>
+
+</body>
+</html>
